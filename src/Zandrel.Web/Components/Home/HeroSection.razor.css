@@ -1,10 +1,9 @@
 ﻿.hero {
     position: relative;
     overflow: hidden;
-    min-height: calc( 100dvh - var(--header-height) );
     display: flex;
     align-items: center;
-    padding-block: clamp(4rem, 8vw, 7rem);
+    padding-block: clamp(2.5rem, 4vw, 3.75rem) clamp(4rem, 6vw, 5.5rem);
     background: linear-gradient( 180deg, var(--color-surface) 0%, var(--color-background) 100% );
 }
 
@@ -561,10 +560,6 @@
    ============================================ */
 
 @media (max-width: 64rem) {
-    .hero {
-        min-height: auto;
-    }
-
     .hero__container {
         grid-template-columns: 1fr;
         gap: var(--space-16);
@@ -607,7 +602,7 @@
 
 @media (max-width: 48rem) {
     .hero {
-        padding-block: var(--space-16) var(--space-12);
+        padding-block: var(--space-10) var(--space-12);
     }
 
     .hero__container {
