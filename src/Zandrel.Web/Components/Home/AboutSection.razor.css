@@ -1,0 +1,345 @@
+﻿.about {
+    position: relative;
+    overflow: hidden;
+    background: var(--color-surface);
+}
+
+
+/* ============================================
+   Layout
+   ============================================ */
+
+.about__container {
+    display: grid;
+    grid-template-columns: minmax(25rem, 0.9fr) minmax(0, 1.1fr);
+    align-items: center;
+    gap: clamp( var(--space-12), 8vw, var(--space-24) );
+}
+
+
+/* ============================================
+   Visual
+   ============================================ */
+
+.about__visual {
+    position: relative;
+    min-width: 0;
+}
+
+.about-card {
+    position: relative;
+    width: min(100%, 31rem);
+    min-height: 35rem;
+    overflow: hidden;
+    padding: var(--space-8);
+    border: 1px solid rgba(102, 87, 232, 0.16);
+    border-radius: var(--radius-xl);
+    background: linear-gradient( 145deg, var(--color-midnight) 0%, #1D2440 58%, #282453 100% );
+    box-shadow: 0 28px 70px rgba(21, 27, 45, 0.18);
+}
+
+.about-card__glow {
+    position: absolute;
+    top: -10rem;
+    right: -10rem;
+    width: 24rem;
+    height: 24rem;
+    border-radius: 50%;
+    background: radial-gradient( circle, rgba(102, 87, 232, 0.42) 0%, rgba(102, 87, 232, 0.08) 48%, transparent 72% );
+    pointer-events: none;
+}
+
+
+/* ============================================
+   Card header
+   ============================================ */
+
+.about-card__header {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.about-card__mark {
+    width: 2.5rem;
+    height: 2.5rem;
+    object-fit: contain;
+}
+
+.about-card__brand {
+    color: var(--color-surface);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: -0.02em;
+}
+
+
+/* ============================================
+   Card message
+   ============================================ */
+
+.about-card__message {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    margin-top: var(--space-16);
+}
+
+    .about-card__message span {
+        color: #AFA6FF;
+        font-size: var(--font-size-xs);
+        font-weight: var(--font-weight-bold);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+    }
+
+    .about-card__message strong {
+        max-width: 9ch;
+        color: var(--color-surface);
+        font-size: clamp( 2.3rem, 4vw, 3.5rem );
+        font-weight: var(--font-weight-bold);
+        line-height: 1.02;
+        letter-spacing: -0.045em;
+    }
+
+
+/* ============================================
+   Card principles
+   ============================================ */
+
+.about-card__principles {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    margin-top: var(--space-12);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.about-card__principle {
+    display: grid;
+    grid-template-columns: 2.25rem minmax(0, 1fr);
+    align-items: center;
+    gap: var(--space-3);
+    min-height: 3rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+}
+
+.about-card__principle-number {
+    color: #AFA6FF;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+}
+
+
+/* ============================================
+   Card footer
+   ============================================ */
+
+.about-card__footer {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-top: var(--space-8);
+    color: rgba(255, 255, 255, 0.48);
+    font-size: var(--font-size-xs);
+    line-height: 1.5;
+}
+
+.about-card__footer-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    flex: 0 0 auto;
+    border-radius: 50%;
+    background: var(--color-iris);
+    box-shadow: 0 0 0 0.3rem rgba(102, 87, 232, 0.14);
+}
+
+
+/* ============================================
+   Content
+   ============================================ */
+
+.about__content {
+    min-width: 0;
+}
+
+.about__title {
+    max-width: 15ch;
+    margin: var(--space-5) 0 var(--space-5);
+    font-size: clamp( 2.1rem, 4vw, 3.25rem );
+    font-weight: var(--font-weight-bold);
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+}
+
+.about__description {
+    max-width: 40rem;
+    margin-bottom: var(--space-4);
+    color: var(--color-text-muted);
+    font-size: var(--font-size-lg);
+    line-height: 1.75;
+}
+
+    .about__description:last-of-type {
+        margin-bottom: 0;
+    }
+
+
+/* ============================================
+   Principles
+   ============================================ */
+
+.about__principles {
+    display: flex;
+    flex-direction: column;
+    margin-top: var(--space-10);
+    border-top: 1px solid var(--color-border);
+}
+
+.about-principle {
+    display: grid;
+    grid-template-columns: 3rem minmax(0, 1fr);
+    align-items: flex-start;
+    gap: var(--space-4);
+    padding-block: var(--space-5);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.about-principle__number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: var(--radius-md);
+    background: var(--color-iris-light);
+    color: var(--color-iris);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+}
+
+.about-principle__title {
+    margin-bottom: var(--space-2);
+    color: var(--color-midnight);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.35;
+}
+
+.about-principle__description {
+    max-width: 34rem;
+    margin-bottom: 0;
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+    line-height: 1.7;
+}
+
+
+/* ============================================
+   Tablet
+   ============================================ */
+
+@media (max-width: 64rem) {
+    .about__container {
+        grid-template-columns: 1fr;
+        gap: var(--space-12);
+    }
+
+    .about__visual {
+        order: 2;
+    }
+
+    .about__content {
+        order: 1;
+        max-width: 44rem;
+    }
+
+    .about__title {
+        max-width: 17ch;
+    }
+
+    .about__description {
+        max-width: 42rem;
+    }
+
+    .about-card {
+        width: min(100%, 40rem);
+        min-height: 32rem;
+        margin-inline: auto;
+    }
+}
+
+
+/* ============================================
+   Mobile
+   ============================================ */
+
+@media (max-width: 48rem) {
+    .about__container {
+        gap: var(--space-10);
+    }
+
+    .about__title {
+        max-width: none;
+        font-size: clamp( 2rem, 9vw, 2.6rem );
+    }
+
+    .about__description {
+        font-size: var(--font-size-base);
+    }
+
+    .about__principles {
+        margin-top: var(--space-8);
+    }
+
+    .about-card {
+        min-height: 30rem;
+        padding: var(--space-6);
+    }
+
+    .about-card__message {
+        margin-top: var(--space-12);
+    }
+
+        .about-card__message strong {
+            font-size: clamp( 2.2rem, 10vw, 3rem );
+        }
+
+    .about-card__principles {
+        margin-top: var(--space-10);
+    }
+}
+
+
+/* ============================================
+   Small mobile
+   ============================================ */
+
+@media (max-width: 24rem) {
+    .about-principle {
+        grid-template-columns: 1fr;
+    }
+
+    .about-card {
+        min-height: 27rem;
+        padding: var(--space-5);
+    }
+
+    .about-card__message {
+        margin-top: var(--space-10);
+    }
+
+        .about-card__message strong {
+            font-size: 2.15rem;
+        }
+}
