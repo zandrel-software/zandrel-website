@@ -143,55 +143,6 @@
 
 
 /* ============================================
-   Trust points
-   ============================================ */
-
-.hero__trust {
-    display: flex;
-    align-items: center;
-    flex-wrap: nowrap;
-    gap: var(--space-4);
-    margin: var(--space-8) 0 0;
-    padding: 0;
-    list-style: none;
-}
-
-.hero__trust-item {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
-    flex: 0 0 auto;
-    color: var(--color-text-muted);
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-medium);
-    white-space: nowrap;
-}
-
-.hero__trust-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 1.6rem;
-    height: 1.6rem;
-    flex: 0 0 auto;
-    border: 1px solid rgba(102, 87, 232, 0.18);
-    border-radius: 50%;
-    background: var(--color-iris-light);
-    color: var(--color-iris);
-}
-
-    .hero__trust-icon svg {
-        width: 0.9rem;
-        height: 0.9rem;
-        fill: none;
-        stroke: currentColor;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-        stroke-width: 2;
-    }
-
-
-/* ============================================
    Visual composition
    ============================================ */
 
@@ -202,16 +153,26 @@
 
 .hero-visual {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--space-5);
     width: 100%;
-    min-height: 32rem;
+    min-width: 0;
+    padding-block: var(--space-4);
 }
 
 .hero-visual__glow {
     position: absolute;
-    inset: 4% 0 0 8%;
-    border-radius: 46% 54% 46% 54%;
-    background: linear-gradient( 145deg, rgba(238, 234, 254, 0.9), rgba(102, 87, 232, 0.08) );
-    transform: rotate(-7deg);
+    z-index: 0;
+    top: 46%;
+    left: 50%;
+    width: 125%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient( circle, rgba(238, 234, 254, 0.98) 0%, rgba(238, 234, 254, 0.88) 36%, rgba(102, 87, 232, 0.12) 65%, rgba(102, 87, 232, 0.03) 78%, transparent 100% );
+    pointer-events: none;
+    transform: translate(-50%, -50%);
 }
 
 
@@ -220,12 +181,12 @@
    ============================================ */
 
 .hero-visual__laptop {
-    position: absolute;
-    top: 4.5rem;
-    right: 0;
-    width: 88%;
-    transform: rotate(3deg);
-    filter: drop-shadow( 0 28px 35px rgba(21, 27, 45, 0.18) );
+    position: relative;
+    z-index: 2;
+    width: 94%;
+    margin-left: auto;
+    transform: rotate(1.5deg);
+    filter: drop-shadow( 0 30px 38px rgba(21, 27, 45, 0.2) );
 }
 
 .hero-visual__screen {
@@ -304,15 +265,23 @@
 
 .dashboard__summary {
     display: flex;
-    align-items: baseline;
-    gap: 0.7rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
 }
 
 .dashboard__label {
-    color: rgba(255, 255, 255, 0.45);
+    color: rgba(255, 255, 255, 0.46);
     font-size: clamp( 0.35rem, 0.7vw, 0.6rem );
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.07em;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+}
+
+.dashboard__headline {
+    display: flex;
+    align-items: baseline;
+    gap: 0.7rem;
 }
 
 .dashboard__value {
@@ -328,7 +297,7 @@
 
 .dashboard__chart {
     min-height: 0;
-    padding: 6% 0 3%;
+    padding: 5% 0 3%;
 }
 
     .dashboard__chart svg {
@@ -408,152 +377,57 @@
 
 
 /* ============================================
-   Phone
+   Main benefits
    ============================================ */
 
-.hero-visual__phone {
-    position: absolute;
-    z-index: 4;
-    bottom: 1.25rem;
-    left: 0;
-    width: 24%;
-    transform: rotate(-4deg);
-    filter: drop-shadow( 0 18px 24px rgba(21, 27, 45, 0.2) );
-}
-
-.phone {
-    aspect-ratio: 9 / 18;
-    padding: 0.3rem;
-    border-radius: 1.25rem;
-    background: #242A3A;
-}
-
-.phone__screen {
+.hero-visual__benefits {
     position: relative;
-    height: 100%;
-    overflow: hidden;
-    padding: 22% 10% 10%;
-    border-radius: 1rem;
-    background: linear-gradient( 180deg, #FFFFFF, #F5F3FF );
-}
-
-.phone__speaker {
-    position: absolute;
-    z-index: 2;
-    top: 0.65rem;
-    left: 50%;
-    width: 32%;
-    height: 0.22rem;
-    border-radius: var(--radius-pill);
-    background: rgba(255, 255, 255, 0.18);
-    transform: translateX(-50%);
-}
-
-.phone__brand img {
-    width: 30%;
-}
-
-.phone__greeting {
-    margin-top: 14%;
-    color: var(--color-midnight);
-    font-size: clamp( 0.45rem, 0.8vw, 0.7rem );
-    font-weight: var(--font-weight-semibold);
-}
-
-.phone__card {
-    margin-top: 12%;
-    padding: 10%;
-    border-radius: 0.55rem;
-}
-
-.phone__card--primary {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-    background: var(--color-iris-light);
-    color: var(--color-iris);
-}
-
-.phone__card span {
-    font-size: clamp( 0.35rem, 0.65vw, 0.55rem );
-}
-
-.phone__card strong {
-    font-size: clamp( 0.65rem, 1vw, 0.9rem );
-}
-
-.phone__grid {
+    z-index: 3;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 8%;
-    margin-top: 14%;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 94%;
+    margin-inline: auto;
 }
 
-.phone__tile {
-    aspect-ratio: 1;
-    border: 1px solid rgba(102, 87, 232, 0.1);
-    border-radius: 0.45rem;
-    background: var(--color-surface);
-}
-
-
-/* ============================================
-   Floating badge
-   ============================================ */
-
-.hero-visual__badge {
-    position: absolute;
-    z-index: 5;
-    right: 2%;
-    bottom: 0;
+.hero-visual__benefit {
     display: flex;
     align-items: center;
-    gap: var(--space-3);
-    padding: var(--space-3) var(--space-4);
-    border: 1px solid rgba(102, 87, 232, 0.12);
-    border-radius: var(--radius-lg);
-    background: rgba(255, 255, 255, 0.94);
-    box-shadow: var(--shadow-lg);
-    -webkit-backdrop-filter: blur(12px);
-    backdrop-filter: blur(12px);
+    gap: var(--space-2);
+    min-width: 0;
+    padding: var(--space-2) var(--space-3);
 }
 
-.hero-visual__badge-icon {
+    .hero-visual__benefit + .hero-visual__benefit {
+        border-left: 1px solid rgba(102, 87, 232, 0.14);
+    }
+
+.hero-visual__benefit-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 2.35rem;
-    height: 2.35rem;
+    width: 2rem;
+    height: 2rem;
     flex: 0 0 auto;
     border-radius: 50%;
     background: var(--color-iris-light);
     color: var(--color-iris);
 }
 
-    .hero-visual__badge-icon svg {
-        width: 1.15rem;
-        height: 1.15rem;
+    .hero-visual__benefit-icon svg {
+        width: 1rem;
+        height: 1rem;
         fill: none;
         stroke: currentColor;
         stroke-linecap: round;
         stroke-linejoin: round;
-        stroke-width: 2;
+        stroke-width: 1.8;
     }
 
-.hero-visual__badge div {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.25;
-}
-
-.hero-visual__badge strong {
+.hero-visual__benefit strong {
     color: var(--color-midnight);
-    font-size: var(--font-size-sm);
-}
-
-.hero-visual__badge span:last-child {
-    color: var(--color-text-muted);
     font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.35;
 }
 
 
@@ -562,13 +436,17 @@
    ============================================ */
 
 @media (max-width: 72rem) and (min-width: 64.0625rem) {
-    .hero__trust {
-        gap: var(--space-3);
+    .hero-visual__benefit {
+        padding-inline: var(--space-2);
     }
 
-    .hero__trust-item {
-        gap: var(--space-1);
-        font-size: var(--font-size-xs);
+    .hero-visual__benefit-icon {
+        width: 1.8rem;
+        height: 1.8rem;
+    }
+
+    .hero-visual__benefit strong {
+        font-size: 0.7rem;
     }
 }
 
@@ -598,18 +476,26 @@
         margin-inline: auto;
     }
 
-    .hero__actions,
-    .hero__trust {
+    .hero__actions {
         justify-content: center;
     }
 
     .hero__visual {
-        width: min(100%, 44rem);
+        width: min(100%, 46rem);
         margin-inline: auto;
     }
 
-    .hero-visual {
-        min-height: 30rem;
+    .hero-visual__laptop {
+        width: 92%;
+        margin-inline: auto;
+    }
+
+    .hero-visual__benefits {
+        width: 92%;
+    }
+
+    .hero-visual__glow {
+        width: 120%;
     }
 }
 
@@ -650,39 +536,38 @@
         width: 100%;
     }
 
-    .hero__trust {
-        justify-content: flex-start;
-        flex-wrap: wrap;
-        gap: var(--space-3) var(--space-4);
-    }
-
-    .hero__trust-item {
-        white-space: normal;
-    }
-
     .hero-visual {
-        min-height: 22rem;
+        gap: var(--space-4);
+        padding-block: var(--space-2);
+    }
+
+    .hero-visual__glow {
+        top: 39%;
+        width: 130%;
     }
 
     .hero-visual__laptop {
-        top: 3rem;
-        width: 92%;
+        width: 100%;
+        transform: rotate(1deg);
     }
 
-    .hero-visual__phone {
-        bottom: 1rem;
-        width: 25%;
+    .hero-visual__benefits {
+        grid-template-columns: 1fr;
+        width: 100%;
     }
 
-    .hero-visual__badge {
-        right: 0;
-        padding: var(--space-2) var(--space-3);
+    .hero-visual__benefit {
+        padding: var(--space-3) 0;
     }
 
-    .hero-visual__badge-icon {
-        width: 2rem;
-        height: 2rem;
-    }
+        .hero-visual__benefit + .hero-visual__benefit {
+            border-top: 1px solid rgba(102, 87, 232, 0.12);
+            border-left: 0;
+        }
+
+        .hero-visual__benefit strong {
+            font-size: var(--font-size-sm);
+        }
 }
 
 
@@ -695,15 +580,12 @@
         font-size: 2.3rem;
     }
 
-    .hero__trust {
-        flex-direction: column;
+    .hero-visual__benefit-icon {
+        width: 1.8rem;
+        height: 1.8rem;
     }
 
-    .hero-visual {
-        min-height: 19rem;
-    }
-
-    .hero-visual__badge {
-        display: none;
+    .hero-visual__benefit strong {
+        font-size: var(--font-size-xs);
     }
 }
