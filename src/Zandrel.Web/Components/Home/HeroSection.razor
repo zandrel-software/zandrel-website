@@ -1,0 +1,403 @@
+﻿@using Zandrel.Web.Constants
+
+<section class="hero"
+         aria-labelledby="hero-title">
+
+    <div class="hero__decoration hero__decoration--primary"
+         aria-hidden="true">
+    </div>
+
+    <div class="hero__decoration hero__decoration--secondary"
+         aria-hidden="true">
+    </div>
+
+    <div class="container hero__container">
+
+        <div class="hero__content">
+
+            <span class="eyebrow">
+                Tecnología sin complicaciones
+            </span>
+
+            <h1 id="hero-title"
+                class="hero__title">
+
+                <span class="hero__title-line">
+                    Tú conoces tu negocio.
+                </span>
+
+                <span class="hero__title-line">
+                    Nosotros nos encargamos
+                </span>
+
+                <span class="hero__title-line">
+                    de la
+                    <span class="text-brand">
+                        tecnología.
+                    </span>
+                </span>
+
+            </h1>
+
+            <p class="hero__description">
+                Cuéntanos qué necesitas o qué problema quieres resolver.
+                Diseñamos una solución profesional, accesible y adaptada
+                a tu presupuesto.
+            </p>
+
+            <div class="hero__actions">
+
+                <a class="hero__button hero__button--primary"
+                   href="@BrandLinks.WhatsApp"
+                   target="_blank"
+                   rel="noopener noreferrer">
+
+                    <svg class="hero__button-icon"
+                         viewBox="0 0 24 24"
+                         aria-hidden="true">
+
+                        <path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8
+                        8.5 8.5 0 0 1-7.6 4.7
+                        8.4 8.4 0 0 1-3.8-.9
+                        L3 21l1.9-5.7
+                        A8.4 8.4 0 0 1 4 11.5
+                        a8.5 8.5 0 0 1 4.7-7.6
+                        A8.4 8.4 0 0 1 12.5 3
+                        h.5
+                        a8.5 8.5 0 0 1 8 8z" />
+
+                    </svg>
+
+                    Cuéntanos tu idea
+
+                </a>
+
+                <a class="hero__button hero__button--secondary"
+                   href="#services">
+
+                    Conoce nuestros servicios
+
+                    <svg class="hero__button-arrow"
+                         viewBox="0 0 24 24"
+                         aria-hidden="true">
+
+                        <path d="M5 12h14M13 6l6 6-6 6" />
+
+                    </svg>
+
+                </a>
+
+            </div>
+
+            <ul class="hero__trust"
+                aria-label="Ventajas de trabajar con Zandrel">
+
+                <li class="hero__trust-item">
+
+                    <span class="hero__trust-icon"
+                          aria-hidden="true">
+
+                        <svg viewBox="0 0 24 24">
+
+                            <path d="M20 6 9 17l-5-5" />
+
+                        </svg>
+
+                    </span>
+
+                    Sin tecnicismos
+
+                </li>
+
+                <li class="hero__trust-item">
+
+                    <span class="hero__trust-icon"
+                          aria-hidden="true">
+
+                        <svg viewBox="0 0 24 24">
+
+                            <path d="M12 2v20M17 6.5c0-1.4-2.2-2.5-5-2.5S7 5.1 7 6.5 9.2 9 12 9s5 1.1 5 2.5S14.8 14 12 14s-5 1.1-5 2.5S9.2 19 12 19s5-1.1 5-2.5" />
+
+                        </svg>
+
+                    </span>
+
+                    A tu presupuesto
+
+                </li>
+
+                <li class="hero__trust-item">
+
+                    <span class="hero__trust-icon"
+                          aria-hidden="true">
+
+                        <svg viewBox="0 0 24 24">
+
+                            <path d="M14.7 6.3a4 4 0 0 0-5 5L3 18v3h3l6.7-6.7a4 4 0 0 0 5-5l-2.5 2.5-3-3z" />
+
+                        </svg>
+
+                    </span>
+
+                    Mantenimiento incluido
+
+                </li>
+
+            </ul>
+
+        </div>
+
+        <div class="hero__visual"
+             aria-hidden="true">
+
+            <div class="hero-visual">
+
+                <div class="hero-visual__glow"></div>
+
+                <div class="hero-visual__laptop">
+
+                    <div class="hero-visual__screen">
+
+                        <div class="dashboard">
+
+                            <div class="dashboard__header">
+
+                                <div class="dashboard__brand">
+
+                                    <img src="images/brand/zandrel-mark-transparent.png"
+                                         alt="" />
+
+                                    <span>
+                                        Zandrel
+                                    </span>
+
+                                </div>
+
+                                <div class="dashboard__controls">
+
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+
+                                </div>
+
+                            </div>
+
+                            <div class="dashboard__content">
+
+                                <div class="dashboard__summary">
+
+                                    <span class="dashboard__label">
+                                        Resumen
+                                    </span>
+
+                                    <strong class="dashboard__value">
+                                        $128,540
+                                    </strong>
+
+                                    <span class="dashboard__growth">
+                                        +18.4%
+                                    </span>
+
+                                </div>
+
+                                <div class="dashboard__chart">
+
+                                    <svg viewBox="0 0 420 150"
+                                         preserveAspectRatio="none">
+
+                                        <defs>
+
+                                            <linearGradient id="hero-chart-fill"
+                                                            x1="0"
+                                                            x2="0"
+                                                            y1="0"
+                                                            y2="1">
+
+                                                <stop offset="0%"
+                                                      stop-color="#6657E8"
+                                                      stop-opacity="0.36" />
+
+                                                <stop offset="100%"
+                                                      stop-color="#6657E8"
+                                                      stop-opacity="0" />
+
+                                            </linearGradient>
+
+                                        </defs>
+
+                                        <path class="dashboard__chart-fill"
+                                              d="M0,128
+                                        C35,118 45,102 76,108
+                                        C110,115 121,63 157,76
+                                        C195,90 204,55 242,58
+                                        C278,61 290,33 324,47
+                                        C357,60 376,25 420,28
+                                        L420,150
+                                        L0,150 Z" />
+
+                                        <path class="dashboard__chart-line"
+                                              d="M0,128
+                                        C35,118 45,102 76,108
+                                        C110,115 121,63 157,76
+                                        C195,90 204,55 242,58
+                                        C278,61 290,33 324,47
+                                        C357,60 376,25 420,28" />
+
+                                    </svg>
+
+                                </div>
+
+                                <div class="dashboard__stats">
+
+                                    <div class="dashboard-stat">
+
+                                        <span class="dashboard-stat__icon">
+                                            24
+                                        </span>
+
+                                        <div>
+
+                                            <strong>
+                                                Proyectos
+                                            </strong>
+
+                                            <span>
+                                                Activos
+                                            </span>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="dashboard-stat">
+
+                                        <span class="dashboard-stat__icon">
+                                            68%
+                                        </span>
+
+                                        <div>
+
+                                            <strong>
+                                                Procesos
+                                            </strong>
+
+                                            <span>
+                                                Optimizados
+                                            </span>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="dashboard-stat">
+
+                                        <span class="dashboard-stat__icon">
+                                            18
+                                        </span>
+
+                                        <div>
+
+                                            <strong>
+                                                Clientes
+                                            </strong>
+
+                                            <span>
+                                                Atendidos
+                                            </span>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="hero-visual__laptop-base"></div>
+
+                </div>
+
+                <div class="hero-visual__phone">
+
+                    <div class="phone">
+
+                        <div class="phone__speaker"></div>
+
+                        <div class="phone__screen">
+
+                            <div class="phone__brand">
+
+                                <img src="images/brand/zandrel-mark-transparent.png"
+                                     alt="" />
+
+                            </div>
+
+                            <div class="phone__greeting">
+                                Hola
+                            </div>
+
+                            <div class="phone__card phone__card--primary">
+
+                                <span>
+                                    Ventas
+                                </span>
+
+                                <strong>
+                                    +24%
+                                </strong>
+
+                            </div>
+
+                            <div class="phone__grid">
+
+                                <div class="phone__tile"></div>
+                                <div class="phone__tile"></div>
+                                <div class="phone__tile"></div>
+                                <div class="phone__tile"></div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="hero-visual__badge">
+
+                    <span class="hero-visual__badge-icon">
+
+                        <svg viewBox="0 0 24 24">
+
+                            <path d="M20 6 9 17l-5-5" />
+
+                        </svg>
+
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Mantenimiento
+                        </strong>
+
+                        <span>
+                            incluido
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
