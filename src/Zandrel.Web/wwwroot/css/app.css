@@ -188,6 +188,7 @@ p {
 
 .section {
     padding-block: var(--space-24);
+    scroll-margin-top: calc( var(--header-height) + var(--space-4) );
 }
 
 .section--surface {

@@ -1,0 +1,403 @@
+﻿.process {
+    position: relative;
+    overflow: hidden;
+    background: var(--color-surface);
+}
+
+
+/* ============================================
+   Layout
+   ============================================ */
+
+.process__container {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(30rem, 1.15fr);
+    align-items: start;
+    gap: clamp( var(--space-12), 8vw, var(--space-24) );
+}
+
+
+/* ============================================
+   Introduction
+   ============================================ */
+
+.process__intro {
+    position: sticky;
+    top: calc( var(--header-height) + var(--space-8) );
+    min-width: 0;
+}
+
+.process__title {
+    max-width: 13ch;
+    margin: var(--space-5) 0 var(--space-5);
+    font-size: clamp( 2.1rem, 4vw, 3.25rem );
+    font-weight: var(--font-weight-bold);
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+}
+
+.process__description {
+    max-width: 35rem;
+    margin-bottom: 0;
+    font-size: var(--font-size-lg);
+    line-height: 1.7;
+}
+
+
+/* ============================================
+   Intro note
+   ============================================ */
+
+.process__note {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+    margin-top: var(--space-8);
+    padding: var(--space-5);
+    border: 1px solid rgba(102, 87, 232, 0.14);
+    border-radius: var(--radius-lg);
+    background: linear-gradient( 135deg, var(--color-iris-light), rgba(255, 255, 255, 0.75) );
+}
+
+.process__note-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    flex: 0 0 auto;
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+    color: var(--color-iris);
+    box-shadow: var(--shadow-sm);
+}
+
+    .process__note-icon svg {
+        width: 1.35rem;
+        height: 1.35rem;
+        fill: none;
+        stroke: currentColor;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.7;
+    }
+
+.process__note > div:last-child {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+}
+
+.process__note strong {
+    color: var(--color-midnight);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.45;
+}
+
+.process__note span {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-xs);
+    line-height: 1.6;
+}
+
+
+/* ============================================
+   Intro action
+   ============================================ */
+
+.process__action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    min-height: 3.25rem;
+    margin-top: var(--space-6);
+    padding-inline: var(--space-6);
+    border-radius: var(--radius-md);
+    background: var(--color-iris);
+    color: var(--color-surface);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    white-space: nowrap;
+    box-shadow: 0 10px 24px rgba(102, 87, 232, 0.2);
+    transition: background-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+
+    .process__action svg {
+        width: 1.1rem;
+        height: 1.1rem;
+        flex: 0 0 auto;
+        fill: none;
+        stroke: currentColor;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.8;
+    }
+
+    .process__action:hover {
+        background: var(--color-iris-hover);
+        box-shadow: 0 14px 30px rgba(102, 87, 232, 0.27);
+        transform: translateY(-2px);
+    }
+
+
+/* ============================================
+   Timeline
+   ============================================ */
+
+.process__timeline {
+    min-width: 0;
+}
+
+.process-list {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+
+/* ============================================
+   Step
+   ============================================ */
+
+.process-step {
+    display: grid;
+    grid-template-columns: 3.5rem minmax(0, 1fr);
+    align-items: stretch;
+    column-gap: var(--space-5);
+}
+
+.process-step__indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.process-step__number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    flex: 0 0 auto;
+    border: 1px solid rgba(102, 87, 232, 0.18);
+    border-radius: 50%;
+    background: var(--color-iris-light);
+    color: var(--color-iris);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    box-shadow: 0 6px 18px rgba(102, 87, 232, 0.08);
+}
+
+.process-step__line {
+    width: 1px;
+    flex: 1;
+    min-height: var(--space-8);
+    margin-block: var(--space-2);
+    background: linear-gradient( 180deg, rgba(102, 87, 232, 0.3), var(--color-border) );
+}
+
+
+/* ============================================
+   Step body
+   ============================================ */
+
+.process-step__body {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: flex-start;
+    gap: var(--space-5);
+    min-width: 0;
+    margin-bottom: var(--space-8);
+    padding: var(--space-6) var(--space-6);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    background: var(--color-background);
+    transition: border-color var(--transition-base), box-shadow var(--transition-base), transform var(--transition-base);
+}
+
+    .process-step__body:hover {
+        border-color: rgba(102, 87, 232, 0.22);
+        box-shadow: var(--shadow-md);
+        transform: translateX(4px);
+    }
+
+.process-step--last .process-step__body {
+    margin-bottom: 0;
+    border-color: rgba(102, 87, 232, 0.2);
+    background: linear-gradient( 135deg, var(--color-background), rgba(238, 234, 254, 0.58) );
+}
+
+
+/* ============================================
+   Step icon
+   ============================================ */
+
+.process-step__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    flex: 0 0 auto;
+    border: 1px solid rgba(102, 87, 232, 0.14);
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+    color: var(--color-iris);
+    box-shadow: var(--shadow-sm);
+}
+
+    .process-step__icon svg {
+        width: 1.45rem;
+        height: 1.45rem;
+        fill: none;
+        stroke: currentColor;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.7;
+    }
+
+
+/* ============================================
+   Step typography
+   ============================================ */
+
+.process-step__label {
+    display: block;
+    margin-bottom: var(--space-1);
+    color: var(--color-iris);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.process-step__title {
+    margin-bottom: var(--space-3);
+    color: var(--color-midnight);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.3;
+    letter-spacing: -0.015em;
+}
+
+.process-step__description {
+    max-width: 36rem;
+    margin-bottom: 0;
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+    line-height: 1.7;
+}
+
+
+/* ============================================
+   Tablet
+   ============================================ */
+
+@media (max-width: 64rem) {
+    .process__container {
+        grid-template-columns: 1fr;
+        gap: var(--space-12);
+    }
+
+    .process__intro {
+        position: static;
+        max-width: 44rem;
+    }
+
+    .process__title {
+        max-width: 15ch;
+    }
+
+    .process__description {
+        max-width: 42rem;
+    }
+}
+
+
+/* ============================================
+   Mobile
+   ============================================ */
+
+@media (max-width: 48rem) {
+    .process__container {
+        gap: var(--space-10);
+    }
+
+    .process__title {
+        max-width: none;
+        font-size: clamp( 2rem, 9vw, 2.6rem );
+    }
+
+    .process__description {
+        font-size: var(--font-size-base);
+    }
+
+    .process__note {
+        margin-top: var(--space-6);
+        padding: var(--space-4);
+    }
+
+    .process__action {
+        width: 100%;
+    }
+
+    .process-step {
+        grid-template-columns: 2.75rem minmax(0, 1fr);
+        column-gap: var(--space-3);
+    }
+
+    .process-step__number {
+        width: 2.75rem;
+        height: 2.75rem;
+        font-size: var(--font-size-xs);
+    }
+
+    .process-step__body {
+        grid-template-columns: 1fr;
+        gap: var(--space-4);
+        margin-bottom: var(--space-5);
+        padding: var(--space-5);
+    }
+
+        .process-step__body:hover {
+            transform: translateY(-2px);
+        }
+
+    .process-step__icon {
+        width: 2.75rem;
+        height: 2.75rem;
+    }
+
+    .process-step__title {
+        font-size: var(--font-size-lg);
+    }
+}
+
+
+/* ============================================
+   Small mobile
+   ============================================ */
+
+@media (max-width: 24rem) {
+    .process-step {
+        grid-template-columns: 2.5rem minmax(0, 1fr);
+        column-gap: var(--space-2);
+    }
+
+    .process-step__number {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .process-step__body {
+        padding: var(--space-4);
+    }
+
+    .process__note {
+        flex-direction: column;
+    }
+}
