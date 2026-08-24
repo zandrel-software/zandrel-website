@@ -1,4 +1,4 @@
-﻿<header class="site-header">
+﻿<header class="site-header @(_isMenuOpen ? "site-header--menu-open" : string.Empty)">
 
     <div class="container site-header__inner">
 
@@ -50,7 +50,8 @@
             <a class="site-header__cta site-header__cta--mobile"
                href="@BrandLinks.WhatsApp"
                target="_blank"
-               rel="noopener noreferrer">
+               rel="noopener noreferrer"
+               @onclick="CloseMenu">
 
                 <svg class="site-header__cta-icon"
                      viewBox="0 0 24 24"
