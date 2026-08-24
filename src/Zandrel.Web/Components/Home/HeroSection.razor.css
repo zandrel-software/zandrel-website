@@ -542,8 +542,7 @@
     }
 
     .hero-visual__glow {
-        top: 39%;
-        width: 130%;
+        display: none;
     }
 
     .hero-visual__laptop {
