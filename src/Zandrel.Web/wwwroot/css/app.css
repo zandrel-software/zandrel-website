@@ -52,6 +52,7 @@
     /* Layout */
     --container-max-width: 75rem;
     --container-padding: 1.5rem;
+    --header-height: 4.75rem;
     /* Borders */
     --radius-sm: 0.5rem;
     --radius-md: 0.75rem;

@@ -1,0 +1,137 @@
+﻿<header class="site-header">
+
+    <div class="container site-header__inner">
+
+        <a class="site-header__brand"
+           href="#home"
+           aria-label="Zandrel - Inicio"
+           @onclick="CloseMenu">
+
+            <img class="site-header__logo"
+                 src="images/brand/zandrel-logo-horizontal-transparent.png"
+                 alt="Zandrel" />
+
+        </a>
+
+        <nav id="primary-navigation"
+             class="site-header__nav @(_isMenuOpen ? "site-header__nav--open" : string.Empty)"
+             aria-label="Navegación principal">
+
+            <a class="site-header__link"
+               href="#home"
+               @onclick="CloseMenu">
+                Inicio
+            </a>
+
+            <a class="site-header__link"
+               href="#services"
+               @onclick="CloseMenu">
+                Servicios
+            </a>
+
+            <a class="site-header__link"
+               href="#process"
+               @onclick="CloseMenu">
+                Cómo trabajamos
+            </a>
+
+            <a class="site-header__link"
+               href="#about"
+               @onclick="CloseMenu">
+                Nosotros
+            </a>
+
+            <a class="site-header__link"
+               href="#contact"
+               @onclick="CloseMenu">
+                Contacto
+            </a>
+
+            <a class="site-header__cta site-header__cta--mobile"
+               href="@BrandLinks.WhatsApp"
+               target="_blank"
+               rel="noopener noreferrer">
+
+                <svg class="site-header__cta-icon"
+                     viewBox="0 0 24 24"
+                     aria-hidden="true">
+
+                    <path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8
+                    8.5 8.5 0 0 1-7.6 4.7
+                    8.4 8.4 0 0 1-3.8-.9
+                    L3 21l1.9-5.7
+                    A8.4 8.4 0 0 1 4 11.5
+                    a8.5 8.5 0 0 1 4.7-7.6
+                    A8.4 8.4 0 0 1 12.5 3
+                    h.5
+                    a8.5 8.5 0 0 1 8 8z" />
+
+                </svg>
+
+                Cotizar por WhatsApp
+
+            </a>
+
+        </nav>
+
+        <div class="site-header__actions">
+
+            <a class="site-header__cta site-header__cta--desktop"
+               href="@BrandLinks.WhatsApp"
+               target="_blank"
+               rel="noopener noreferrer">
+
+                <svg class="site-header__cta-icon"
+                     viewBox="0 0 24 24"
+                     aria-hidden="true">
+
+                    <path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8
+                    8.5 8.5 0 0 1-7.6 4.7
+                    8.4 8.4 0 0 1-3.8-.9
+                    L3 21l1.9-5.7
+                    A8.4 8.4 0 0 1 4 11.5
+                    a8.5 8.5 0 0 1 4.7-7.6
+                    A8.4 8.4 0 0 1 12.5 3
+                    h.5
+                    a8.5 8.5 0 0 1 8 8z" />
+
+                </svg>
+
+                Cotizar por WhatsApp
+
+            </a>
+
+            <button class="site-header__menu-button @(_isMenuOpen ? "site-header__menu-button--open" : string.Empty)"
+                    type="button"
+                    aria-label="@(_isMenuOpen ? "Cerrar menú" : "Abrir menú")"
+                    aria-controls="primary-navigation"
+                    aria-expanded="@(_isMenuOpen ? "true" : "false")"
+                    @onclick="ToggleMenu">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+@code {
+
+    private bool _isMenuOpen;
+
+    private void ToggleMenu()
+    {
+        _isMenuOpen = !_isMenuOpen;
+    }
+
+    private void CloseMenu()
+    {
+        _isMenuOpen = false;
+    }
+
+}
