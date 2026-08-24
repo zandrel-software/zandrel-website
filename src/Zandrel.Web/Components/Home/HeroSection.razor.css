@@ -374,9 +374,17 @@
     border-radius: 0.5rem;
     background: rgba(102, 87, 232, 0.16);
     color: #AFA6FF;
-    font-size: clamp( 0.4rem, 0.7vw, 0.6rem );
-    font-weight: var(--font-weight-bold);
 }
+
+    .dashboard-stat__icon svg {
+        width: 52%;
+        height: 52%;
+        fill: none;
+        stroke: currentColor;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.8;
+    }
 
 .dashboard-stat div {
     display: flex;
