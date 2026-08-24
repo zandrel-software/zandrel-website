@@ -1,0 +1,463 @@
+﻿.maintenance {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient( 180deg, var(--color-background) 0%, var(--color-surface) 100% );
+}
+
+
+    /* ============================================
+   Decoration
+   ============================================ */
+
+    .maintenance::before {
+        position: absolute;
+        top: -18rem;
+        left: -16rem;
+        width: 38rem;
+        height: 38rem;
+        border-radius: 50%;
+        background: radial-gradient( circle, rgba(102, 87, 232, 0.09) 0%, transparent 70% );
+        content: "";
+        pointer-events: none;
+    }
+
+
+/* ============================================
+   Layout
+   ============================================ */
+
+.maintenance__container {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 0.82fr) minmax(32rem, 1.18fr);
+    align-items: center;
+    gap: clamp( var(--space-12), 7vw, var(--space-24) );
+}
+
+
+/* ============================================
+   Content
+   ============================================ */
+
+.maintenance__content {
+    min-width: 0;
+}
+
+.maintenance__title {
+    max-width: 14ch;
+    margin: var(--space-5) 0 var(--space-5);
+    font-size: clamp( 2.1rem, 4vw, 3.25rem );
+    font-weight: var(--font-weight-bold);
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+}
+
+.maintenance__description {
+    max-width: 37rem;
+    margin-bottom: var(--space-4);
+    color: var(--color-text-muted);
+    font-size: var(--font-size-lg);
+    line-height: 1.75;
+}
+
+    .maintenance__description:last-of-type {
+        margin-bottom: 0;
+    }
+
+
+/* ============================================
+   Highlight
+   ============================================ */
+
+.maintenance__highlight {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+    max-width: 38rem;
+    margin-top: var(--space-8);
+    padding: var(--space-5);
+    border: 1px solid rgba(102, 87, 232, 0.16);
+    border-radius: var(--radius-lg);
+    background: linear-gradient( 135deg, var(--color-iris-light), rgba(255, 255, 255, 0.78) );
+}
+
+.maintenance__highlight-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    flex: 0 0 auto;
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+    color: var(--color-iris);
+    box-shadow: var(--shadow-sm);
+}
+
+    .maintenance__highlight-icon svg {
+        width: 1.4rem;
+        height: 1.4rem;
+        fill: none;
+        stroke: currentColor;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.8;
+    }
+
+.maintenance__highlight > div:last-child {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+}
+
+.maintenance__highlight strong {
+    color: var(--color-midnight);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.45;
+}
+
+.maintenance__highlight span {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-xs);
+    line-height: 1.6;
+}
+
+
+/* ============================================
+   Action
+   ============================================ */
+
+.maintenance__action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    min-height: 3.25rem;
+    margin-top: var(--space-6);
+    padding-inline: var(--space-6);
+    border-radius: var(--radius-md);
+    background: var(--color-iris);
+    color: var(--color-surface);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    white-space: nowrap;
+    box-shadow: 0 10px 24px rgba(102, 87, 232, 0.2);
+    transition: background-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+
+    .maintenance__action svg {
+        width: 1.1rem;
+        height: 1.1rem;
+        flex: 0 0 auto;
+        fill: none;
+        stroke: currentColor;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.8;
+    }
+
+    .maintenance__action:hover {
+        background: var(--color-iris-hover);
+        box-shadow: 0 14px 30px rgba(102, 87, 232, 0.27);
+        transform: translateY(-2px);
+    }
+
+
+/* ============================================
+   Coverage
+   ============================================ */
+
+.maintenance__coverage {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid rgba(227, 230, 237, 0.95);
+    border-radius: var(--radius-xl);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-lg);
+}
+
+
+/* ============================================
+   Panels
+   ============================================ */
+
+.maintenance-panel {
+    padding: var(--space-8);
+}
+
+.maintenance-panel--included {
+    background: linear-gradient( 135deg, rgba(238, 234, 254, 0.46), var(--color-surface) 55% );
+}
+
+.maintenance-panel--additional {
+    border-top: 1px solid var(--color-border);
+    background: var(--color-surface);
+}
+
+
+/* ============================================
+   Panel header
+   ============================================ */
+
+.maintenance-panel__header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+}
+
+.maintenance-panel__status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    flex: 0 0 auto;
+    border-radius: var(--radius-md);
+}
+
+    .maintenance-panel__status svg {
+        width: 1.4rem;
+        height: 1.4rem;
+        fill: none;
+        stroke: currentColor;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2;
+    }
+
+.maintenance-panel__status--included {
+    background: var(--color-iris);
+    color: var(--color-surface);
+    box-shadow: 0 8px 20px rgba(102, 87, 232, 0.2);
+}
+
+.maintenance-panel__status--additional {
+    border: 1px solid var(--color-border);
+    background: var(--color-background);
+    color: var(--color-text-muted);
+}
+
+.maintenance-panel__header > div:last-child {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    gap: var(--space-1);
+}
+
+.maintenance-panel__eyebrow {
+    color: var(--color-iris);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.maintenance-panel--additional
+.maintenance-panel__eyebrow {
+    color: var(--color-text-muted);
+}
+
+.maintenance-panel__title {
+    margin: 0;
+    color: var(--color-midnight);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.35;
+}
+
+
+/* ============================================
+   Lists
+   ============================================ */
+
+.maintenance-panel__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+    .maintenance-panel__list li {
+        display: grid;
+        grid-template-columns: 2rem minmax(0, 1fr);
+        align-items: flex-start;
+        gap: var(--space-3);
+    }
+
+.maintenance-panel__list-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: var(--color-iris-light);
+    color: var(--color-iris);
+}
+
+    .maintenance-panel__list-icon svg {
+        width: 0.95rem;
+        height: 0.95rem;
+        fill: none;
+        stroke: currentColor;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2;
+    }
+
+.maintenance-panel__list-icon--additional {
+    border: 1px solid var(--color-border);
+    background: var(--color-background);
+    color: var(--color-text-muted);
+}
+
+.maintenance-panel__list li > div {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+}
+
+.maintenance-panel__list strong {
+    color: var(--color-midnight);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.45;
+}
+
+.maintenance-panel__list li div > span {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-xs);
+    line-height: 1.65;
+}
+
+
+/* ============================================
+   Clarification
+   ============================================ */
+
+.maintenance__clarification {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    padding: var(--space-5) var(--space-8);
+    border-top: 1px solid var(--color-border);
+    background: var(--color-background);
+}
+
+    .maintenance__clarification svg {
+        width: 1.15rem;
+        height: 1.15rem;
+        flex: 0 0 auto;
+        margin-top: 0.15rem;
+        fill: none;
+        stroke: var(--color-iris);
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.8;
+    }
+
+    .maintenance__clarification p {
+        margin: 0;
+        color: var(--color-text-muted);
+        font-size: var(--font-size-xs);
+        line-height: 1.65;
+    }
+
+
+/* ============================================
+   Tablet
+   ============================================ */
+
+@media (max-width: 64rem) {
+    .maintenance__container {
+        grid-template-columns: 1fr;
+        gap: var(--space-12);
+    }
+
+    .maintenance__content {
+        max-width: 44rem;
+    }
+
+    .maintenance__title {
+        max-width: 16ch;
+    }
+
+    .maintenance__description,
+    .maintenance__highlight {
+        max-width: 42rem;
+    }
+
+    .maintenance__coverage {
+        width: min(100%, 44rem);
+        margin-inline: auto;
+    }
+}
+
+
+/* ============================================
+   Mobile
+   ============================================ */
+
+@media (max-width: 48rem) {
+    .maintenance__container {
+        gap: var(--space-10);
+    }
+
+    .maintenance__title {
+        max-width: none;
+        font-size: clamp( 2rem, 9vw, 2.6rem );
+    }
+
+    .maintenance__description {
+        font-size: var(--font-size-base);
+    }
+
+    .maintenance__highlight {
+        margin-top: var(--space-6);
+        padding: var(--space-4);
+    }
+
+    .maintenance__action {
+        width: 100%;
+    }
+
+    .maintenance-panel {
+        padding: var(--space-5);
+    }
+
+    .maintenance-panel__header {
+        align-items: flex-start;
+    }
+
+    .maintenance__clarification {
+        padding: var(--space-5);
+    }
+}
+
+
+/* ============================================
+   Small mobile
+   ============================================ */
+
+@media (max-width: 24rem) {
+    .maintenance__highlight {
+        flex-direction: column;
+    }
+
+    .maintenance-panel__header {
+        flex-direction: column;
+    }
+
+    .maintenance-panel__list li {
+        grid-template-columns: 1fr;
+    }
+
+    .maintenance__clarification {
+        flex-direction: column;
+    }
+}
