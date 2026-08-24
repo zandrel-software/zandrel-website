@@ -1,33 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Zandrel.Web</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0" />
+
     <base href="/" />
-    <link rel="preload" id="webassembly" />
-    <link rel="stylesheet" href="css/app.css" />
-    <!-- If you add any scoped CSS files, uncomment the following to load them
-    <link href="Zandrel.Web.styles.css" rel="stylesheet" /> -->
-    <script type="importmap"></script>
+
+    <title>Zandrel | Soluciones de software para tu negocio</title>
+
+    <meta name="description"
+          content="Soluciones de software profesionales, accesibles y adaptadas a las necesidades y presupuesto de tu negocio." />
+
+    <meta name="theme-color"
+          content="#F8F9FC" />
+
+    <link rel="icon"
+          type="image/png"
+          href="images/brand/zandrel-mark-transparent.png" />
+
+    <link rel="stylesheet"
+          href="css/app.css" />
+
+    <link rel="stylesheet"
+          href="Zandrel.Web.styles.css" />
 </head>
 
 <body>
-    <div id="app">
-        <svg class="loading-progress">
-            <circle r="40%" cx="50%" cy="50%" />
-            <circle r="40%" cx="50%" cy="50%" />
-        </svg>
-        <div class="loading-progress-text"></div>
+
+    <div id="app"
+         class="app-loading">
+
+        <div class="app-loading__content">
+
+            <img class="app-loading__mark"
+                 src="images/brand/zandrel-mark.png"
+                 alt="Zandrel" />
+
+            <div class="app-loading__bar"
+                 role="progressbar"
+                 aria-label="Cargando Zandrel"></div>
+
+        </div>
+
     </div>
 
     <div id="blazor-error-ui">
-        An unhandled error has occurred.
-        <a href="." class="reload">Reload</a>
-        <span class="dismiss">🗙</span>
+
+        Ocurrió un error inesperado.
+
+        <a href=""
+           class="reload">
+            Recargar
+        </a>
+
+        <a class="dismiss">
+            ×
+        </a>
+
     </div>
-    <script src="_framework/blazor.webassembly#[.{fingerprint}].js"></script>
+
+    <script src="_framework/blazor.webassembly.js"></script>
+
 </body>
 
 </html>
