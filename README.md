@@ -13,7 +13,7 @@
 </p>
 
 <p align="center">
-  <a href="https://zandrel-software.github.io/zandrel-website/">
+  <a href="https://zandrel.com/">
     View Live Website
   </a>
 </p>
@@ -210,7 +210,7 @@ The website is deployed automatically to GitHub Pages through GitHub Actions.
 Current production URL:
 
 ```text
-https://zandrel-software.github.io/zandrel-website/
+https://zandrel.com/
 ```
 
 The deployment workflow is located at:
@@ -250,7 +250,7 @@ for local development.
 The deployment workflow changes the published copy to:
 
 ```html
-<base href="/zandrel-website/" />
+<base href="/" />
 ```
 
 for GitHub Pages.
