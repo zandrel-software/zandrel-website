@@ -44,15 +44,6 @@ jobs:
           --output ./publish
           --no-restore
 
-      - name: Configure GitHub Pages base path
-        shell: bash
-        run: |
-          PUBLISH_DIR="./publish/wwwroot"
-
-          sed -i \
-            's|<base href="/" />|<base href="/zandrel-website/" />|' \
-            "$PUBLISH_DIR/index.html"
-
       - name: Configure static hosting files
         shell: bash
         run: |
