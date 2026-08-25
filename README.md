@@ -31,7 +31,8 @@ Current service areas include:
 - Professional websites
 - Custom software systems
 - Business process automation
-- Corrective maintenance for delivered solutions
+
+Delivered solutions also include corrective maintenance under Zandrel's current service model.
 
 The public website is currently written in Spanish and designed primarily for businesses, entrepreneurs, independent professionals, and small companies.
 
@@ -86,6 +87,7 @@ zandrel-website/
 │       │   │   ├── brand/
 │       │   │   └── social/
 │       │   ├── index.html
+│       │   ├── robots.txt
 │       │   └── sitemap.xml
 │       ├── App.razor
 │       ├── Program.cs
@@ -205,9 +207,7 @@ The application is a standalone Blazor WebAssembly site and produces static asse
 
 ## Deployment
 
-The website is deployed automatically to GitHub Pages through GitHub Actions.
-
-Current production URL:
+The website is deployed automatically to GitHub Pages through GitHub Actions and is available through the custom production domain:
 
 ```text
 https://zandrel.com/
@@ -234,26 +234,19 @@ The workflow:
 3. Configures GitHub Pages
 4. Restores dependencies
 5. Publishes the Blazor WebAssembly application
-6. Adjusts the production base path for the GitHub Pages project site
-7. Creates the required static-hosting files
-8. Uploads the Pages artifact
-9. Deploys the website
+6. Creates the required static-hosting files
+7. Uploads the Pages artifact
+8. Deploys the website
 
-The source `index.html` intentionally keeps:
-
-```html
-<base href="/" />
-```
-
-for local development.
-
-The deployment workflow changes the published copy to:
+The application uses the root base path:
 
 ```html
 <base href="/" />
 ```
 
-for GitHub Pages.
+Because the production website is served from the custom root domain `https://zandrel.com/`, no repository-specific base path adjustment is required during deployment.
+
+GitHub Pages remains the hosting platform, while `zandrel.com` is the public production domain.
 
 ## Blazor Static Assets
 
@@ -273,7 +266,7 @@ This allows the published application to reference the generated fingerprinted s
 
 ## SEO and Social Sharing
 
-The website currently includes:
+The website includes:
 
 - Page title and meta description
 - Canonical URL
@@ -284,6 +277,23 @@ The website currently includes:
 - `Organization` structured data
 - `WebSite` structured data
 - XML sitemap
+- `robots.txt`
+
+The canonical production domain is:
+
+```text
+https://zandrel.com/
+```
+
+All public SEO and social-sharing references use this domain, including:
+
+- Canonical URL
+- `og:url`
+- `og:image`
+- `twitter:image`
+- Structured data identifiers and URLs
+- `sitemap.xml`
+- `robots.txt`
 
 The current social preview asset is located at:
 
@@ -291,17 +301,7 @@ The current social preview asset is located at:
 src/Zandrel.Web/wwwroot/images/social/zandrel-social-preview.png
 ```
 
-The SEO configuration currently references the temporary GitHub Pages URL.
-
-When Zandrel moves to a custom domain, the following production references must be updated together:
-
-- Canonical URL
-- `og:url`
-- `og:image`
-- `twitter:image`
-- Structured data URLs
-- `sitemap.xml`
-- GitHub Pages custom-domain configuration
+The custom domain points to the existing GitHub Pages deployment, so GitHub Pages continues to serve the static Blazor WebAssembly application while `zandrel.com` acts as the public production URL.
 
 ## Responsive Design
 
@@ -353,7 +353,6 @@ Current variants include:
 zandrel-logo-horizontal-transparent.png
 zandrel-logo-horizontal-white.png
 zandrel-logo-horizontal-black.png
-
 zandrel-mark-transparent.png
 zandrel-mark-white.png
 zandrel-mark-black.png
