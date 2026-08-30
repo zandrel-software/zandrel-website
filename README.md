@@ -9,46 +9,46 @@
 </p>
 
 <p align="center">
-  Official website for <strong>Zandrel</strong>, built with .NET 10 and Blazor WebAssembly.
+  Legacy Zandrel website built with <strong>.NET 10</strong> and <strong>Blazor WebAssembly</strong>.
 </p>
 
 <p align="center">
-  <a href="https://zandrel.com/">
+  <a href="https://zandrel-software.github.io/zandrel-website/">
     View Live Website
   </a>
 </p>
 
 ---
 
-## About Zandrel
+## About This Repository
 
-Zandrel creates software solutions around real business needs.
+This repository contains the previous version of the Zandrel website.
 
-The company focuses on making technology easier to understand, accessible to businesses with different budgets, and supported by clear, personal communication throughout the project.
+The site was originally designed around a more formal software-business positioning and was previously served through the custom domain `zandrel.com`.
 
-Current service areas include:
+It is now preserved as a standalone GitHub Pages deployment and remains available at:
+
+```text
+https://zandrel-software.github.io/zandrel-website/
+```
+
+The `zandrel.com` domain is no longer associated with this repository.
+
+## Original Website Purpose
+
+This version of the website was created to communicate Zandrel's software services through a professional, business-oriented landing page.
+
+Its original focus included:
 
 - Professional websites
 - Custom software systems
 - Business process automation
+- Direct project communication
+- Flexible project scope
+- Corrective maintenance under the original service model
+- WhatsApp as the main conversion channel
 
-Delivered solutions also include corrective maintenance under Zandrel's current service model.
-
-The public website is currently written in Spanish and designed primarily for businesses, entrepreneurs, independent professionals, and small companies.
-
-## Website Goals
-
-The website is designed to communicate Zandrel's value proposition without unnecessary technical complexity.
-
-Its main goals are to:
-
-- Explain services in clear, business-oriented language
-- Help potential clients understand how Zandrel works
-- Communicate that project scope can be adapted to real needs and viable budgets
-- Emphasize direct, personal attention without bots
-- Explain the included corrective maintenance model clearly
-- Convert interested visitors through WhatsApp
-- Present Zandrel as a professional, modern, and trustworthy software brand
+The public website is written in Spanish.
 
 ## Tech Stack
 
@@ -62,17 +62,17 @@ Its main goals are to:
 | Hosting | GitHub Pages |
 | CI/CD | GitHub Actions |
 
-The project intentionally avoids JavaScript frameworks, CSS frameworks, npm dependencies, authentication, and backend infrastructure unless they become necessary in the future.
+The project intentionally avoids JavaScript frameworks, CSS frameworks, npm dependencies, authentication, and backend infrastructure unless required by future maintenance.
 
 ## Architecture
 
-The solution currently contains a standalone Blazor WebAssembly application:
+The solution contains a standalone Blazor WebAssembly application:
 
 ```text
 zandrel-website/
 ├── .github/
 │   └── workflows/
-│       └── deploy-pages.yml
+│       └── deploy.yml
 │
 ├── src/
 │   └── Zandrel.Web/
@@ -120,7 +120,7 @@ The experience is intentionally focused on a single conversion channel: WhatsApp
 
 ## Design System
 
-Zandrel uses a restrained visual system centered around a light interface with Midnight and Iris as the primary brand colors.
+This version of Zandrel uses a restrained visual system centered around a light interface with Midnight and Iris as the primary colors.
 
 ### Core Colors
 
@@ -207,16 +207,18 @@ The application is a standalone Blazor WebAssembly site and produces static asse
 
 ## Deployment
 
-The website is deployed automatically to GitHub Pages through GitHub Actions and is available through the custom production domain:
+The website is deployed automatically to GitHub Pages through GitHub Actions.
+
+Current production URL:
 
 ```text
-https://zandrel.com/
+https://zandrel-software.github.io/zandrel-website/
 ```
 
 The deployment workflow is located at:
 
 ```text
-.github/workflows/deploy-pages.yml
+.github/workflows/deploy.yml
 ```
 
 Every push to:
@@ -227,36 +229,41 @@ main
 
 triggers the deployment pipeline.
 
-The workflow:
+The workflow can also be executed manually through `workflow_dispatch`.
+
+The deployment process:
 
 1. Checks out the repository
 2. Configures .NET 10
-3. Configures GitHub Pages
+3. Reads the active GitHub Pages configuration
 4. Restores dependencies
 5. Publishes the Blazor WebAssembly application
-6. Creates the required static-hosting files
-7. Uploads the Pages artifact
-8. Deploys the website
+6. Adjusts the production base path and public URLs
+7. Creates the required static-hosting files
+8. Uploads the GitHub Pages artifact
+9. Deploys the website
 
-The application uses the root base path:
+### Base Path Handling
+
+For local development, the application keeps:
 
 ```html
 <base href="/" />
 ```
 
-Because the production website is served from the custom root domain `https://zandrel.com/`, no repository-specific base path adjustment is required during deployment.
+During GitHub Pages deployment, the workflow adjusts the published artifact to use:
 
-GitHub Pages remains the hosting platform, while `zandrel.com` is the public production domain.
+```html
+<base href="/zandrel-website/" />
+```
+
+This allows the same source project to work correctly both locally and under the repository-specific GitHub Pages path.
 
 ## Blazor Static Assets
 
-The project targets .NET 10 and enables HTML asset placeholder processing:
+The project targets .NET 10 and enables HTML asset placeholder processing.
 
-```xml
-<OverrideHtmlAssetPlaceholders>true</OverrideHtmlAssetPlaceholders>
-```
-
-The Blazor startup script therefore uses the .NET 10 fingerprint placeholder:
+The Blazor startup script uses the .NET 10 fingerprint placeholder:
 
 ```html
 <script src="_framework/blazor.webassembly#[.{fingerprint}].js"></script>
@@ -279,13 +286,13 @@ The website includes:
 - XML sitemap
 - `robots.txt`
 
-The canonical production domain is:
+The current canonical URL is:
 
 ```text
-https://zandrel.com/
+https://zandrel-software.github.io/zandrel-website/
 ```
 
-All public SEO and social-sharing references use this domain, including:
+Public SEO and social-sharing references use the GitHub Pages deployment URL, including:
 
 - Canonical URL
 - `og:url`
@@ -300,8 +307,6 @@ The current social preview asset is located at:
 ```text
 src/Zandrel.Web/wwwroot/images/social/zandrel-social-preview.png
 ```
-
-The custom domain points to the existing GitHub Pages deployment, so GitHub Pages continues to serve the static Blazor WebAssembly application while `zandrel.com` acts as the public production URL.
 
 ## Responsive Design
 
@@ -337,11 +342,9 @@ The project includes foundational accessibility considerations such as:
 - Accessible navigation controls
 - Descriptive image alternatives where required
 
-Accessibility will continue to be reviewed as the website evolves.
-
 ## Brand Assets
 
-Official brand assets are stored in:
+Brand assets are stored in:
 
 ```text
 src/Zandrel.Web/wwwroot/images/brand/
@@ -367,7 +370,7 @@ The project follows these conventions:
 - C# nullable reference types are enabled
 - Implicit usings are enabled
 - Components use scoped CSS when appropriate
-- Business and brand URLs are centralized instead of duplicated
+- Public URLs are kept consistent with the active deployment
 - Unnecessary dependencies are avoided
 - Changes should remain focused and minimal
 - Git history follows Conventional Commits
@@ -396,9 +399,15 @@ Repository:
 zandrel-website
 ```
 
+Live deployment:
+
+```text
+https://zandrel-software.github.io/zandrel-website/
+```
+
 ---
 
 <p align="center">
   <strong>Zandrel</strong><br />
-  Technology built around real business needs.
+  Previous website preserved on GitHub Pages.
 </p>
