@@ -31,6 +31,7 @@ jobs:
           dotnet-version: '10.0.x'
 
       - name: Setup GitHub Pages
+        id: pages
         uses: actions/configure-pages@v6
 
       - name: Restore dependencies
@@ -44,12 +45,43 @@ jobs:
           --output ./publish
           --no-restore
 
-      - name: Configure static hosting files
+      - name: Configure GitHub Pages deployment
         shell: bash
+        env:
+          BASE_PATH: ${{ steps.pages.outputs.base_path }}
+          BASE_URL: ${{ steps.pages.outputs.base_url }}
         run: |
-          PUBLISH_DIR="./publish/wwwroot"
+          set -e
 
+          PUBLISH_DIR="./publish/wwwroot"
+          BASE_HREF="${BASE_PATH}/"
+
+          echo "GitHub Pages base URL:  ${BASE_URL}"
+          echo "GitHub Pages base path: ${BASE_PATH}"
+          echo "Blazor base href:       ${BASE_HREF}"
+
+          # Configure Blazor base path for the active Pages URL.
+          sed -i \
+            "s|<base href=\"/\" />|<base href=\"${BASE_HREF}\" />|" \
+            "$PUBLISH_DIR/index.html"
+
+          # Update public URLs in the generated artifact.
+          for FILE in \
+            "$PUBLISH_DIR/index.html" \
+            "$PUBLISH_DIR/robots.txt" \
+            "$PUBLISH_DIR/sitemap.xml"
+          do
+            if [ -f "$FILE" ]; then
+              sed -i \
+                "s|https://zandrel.com|${BASE_URL}|g" \
+                "$FILE"
+            fi
+          done
+
+          # Required for GitHub Pages static hosting.
           touch "$PUBLISH_DIR/.nojekyll"
+
+          # Blazor SPA fallback.
           cp "$PUBLISH_DIR/index.html" "$PUBLISH_DIR/404.html"
 
       - name: Upload GitHub Pages artifact
