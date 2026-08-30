@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://zandrel.com/sitemap.xml
+Sitemap: https://zandrel-software.github.io/zandrel-website/sitemap.xml
